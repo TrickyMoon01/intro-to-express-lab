@@ -83,7 +83,7 @@ app.get('/collectibles/:index/', (req, res) => {
 
     if (type) {
         const banana = shoes.filter(shoe => 
-            shoe.type === type
+        shoe.type === type
         )
         res.send(`the shoe is ${JSON.stringify(banana)}`)
     };
