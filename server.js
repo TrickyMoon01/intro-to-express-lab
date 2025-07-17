@@ -90,5 +90,6 @@ app.get('/shoes', (req, res) => {
     }
 });
 
-    // Glenn and Alicia helped me for questions
+    // Glenn helped me for questions 2-4 
+    // Alicia helped me with 4
 
