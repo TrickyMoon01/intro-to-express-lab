@@ -90,6 +90,6 @@ app.get('/shoes', (req, res) => {
     }
 });
 
-    // Glenn helped me for questions 2-4 
+    // Glenn helped me with questions 2-4 
     // Alicia helped me with 4
-
+    // Code seems to work but background turns black. Hopefully that doesn't mean anything.
