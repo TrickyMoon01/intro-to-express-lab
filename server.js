@@ -74,37 +74,21 @@ app.get('/collectibles/:index/', (req, res) => {
       { name: "Fifty-Inch Heels", price: 175, type: "heel" }
   ];
 
-  app.get("/shoes", (req, res) => {
-    const name = req.query.name
-    const minPrice = parseInt(req.query.min-price)
-    const maxPrice = parseInt(req.query.max-price)
-    const type = req.query.type
-    console.log(type)
+app.get('/shoes', (req, res) => {
+    const minPrice = req.query.minPrice;
+    const maxPrice = req.query.maxPrice;
+    const type = req.query.type;
+    if (minPrice || maxPrice || type) {
+        const filteredShoes = shoes.filter((shoe) => {
+            if (shoe.price <= maxPrice && shoe.price >= minPrice && shoe.type === type) {
+                return shoe
+            }
+        });
+        res.send(filteredShoes)
+    } else {
+        res.send(shoes)
+    }
+});
 
-    if (type) {
-        const banana = shoes.filter(shoe => 
-        shoe.type === type
-        )
-        res.send(`the shoe is ${JSON.stringify(banana)}`)
-    };
+    // Glenn and Alicia helped me for questions
 
-    // min-price
-    if (minPrice) {
-        const inPrice = shoes.filter(shoe => shoe.price > minPrice)
-        res.send(`the shoe is ${JSON.stringify(inPrice)}`)
-    }
-    // max-price
-    if (maxPrice) {
-        const axPrice = shoes.filter(shoe => shoe.price < maxPrice)
-        res.send(`the shoe is ${JSON.stringify(axPrice)}`)
-    }
-    // type of shoes
-    if (type === sandal) {
-        const ype = shoes.filter(shoe => shoe.type === type)
-        res.send(`the shoe is ${JSON.stringify(ype)}`)
-    }
-})
-    // no parameters
-    if (shoes === "") {
-        res.send(shoes);
-    }
